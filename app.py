@@ -1,7 +1,7 @@
 from flask import Flask
 from RSI_trand_analysis import rsi_bp  # 从 RSI_trand_analysis.py 导入蓝图
 
-app = Flask(__name__)
+app = Flask(__name__), template_folder='templates')
 # 注册蓝图，将 RSI 功能放在 /rsi 路径下（你也可以不设置 url_prefix，这样就直接在根路径访问）
 app.register_blueprint(rsi_bp, url_prefix='/rsi')
 
