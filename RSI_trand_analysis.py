@@ -3,7 +3,8 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 
-app = Flask(__name__)
+# 创建蓝图对象，名字可以自定义，比如 rsi_bp
+rsi_bp = Blueprint('rsi_bp', __name__)
 
 def compute_rsi(series, period=14):
     """
@@ -119,6 +120,3 @@ def index():
         return render_template('results.html', tables=[res_df.to_html(classes='data', index=False, escape=False)], titles=res_df.columns.values, win_rate=f"{final_win_rate:.2f}%", ticker=ticker)
 
     return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
