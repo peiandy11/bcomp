@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ticker }} - RSI 持续性计算结果</title>
+    <style>
+        .positive { color: red; }  /* 涨幅为正值时的样式 */
+        .negative { color: green; } /* 涨幅为负值时的样式 */
+    </style>
+</head>
+<body>
+    <h1>{{ ticker }} - RSI 持续性计算结果</h1>  <!-- 显示个股代码 -->
+    <h3>结果为该股票在出现 RSI 6 值大于 90 时，涨幅的延续性</h3>
+    <h2>胜率: {{ win_rate }}</h2>  <!-- 显示胜率 -->
+    {% for table in tables %}
+        <div>{{ titles[loop.index0] }}</div>
+        {{ table|safe }}
+    {% endfor %}
+    <a href="/">返回</a>
+</body>
+</html> 
